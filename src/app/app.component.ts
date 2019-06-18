@@ -25,6 +25,7 @@ function drawChart() {
     var input1 = [['cost','interest']];
     var input2 = [['cost','interest']];
     var input3 = [['cost','interest']];
+    var input4 = [['cost','interest']];
     
     var x0 = 2000.0;
     var myLn = function(x) { return Math.log(x / x0); }
@@ -36,6 +37,7 @@ function drawChart() {
     var scaleLn = 3*y0/myLn(x1);
     var scale2 = 3*y0/myLog2(x1);
     var scale10 = 3*y0/myLog10(x1);
+    var scale4 = 6*y0/myLog10(x1);
 
     for(var i=4; i<100; i++) {
       var x = i*500
@@ -51,6 +53,11 @@ function drawChart() {
       var x = i*500
       input3.push([x,y0 + scale10*(myLog10(x))]);
     }
+
+    for(var i=4; i<200; i++) {
+      var x = i*500
+      input4.push([x,y0 + scale4*(myLog2(x))]);
+    }
  
     // Standard google charts functionality is available as GoogleCharts.api after load
     const data1 = GoogleCharts.api.visualization.arrayToDataTable(input1);
@@ -64,6 +71,11 @@ function drawChart() {
     const data3 = GoogleCharts.api.visualization.arrayToDataTable(input3);
     const pie_3_chart = new GoogleCharts.api.visualization.LineChart(document.getElementById('chart3'));
     pie_3_chart.draw(data3);
+
+    const data4 = GoogleCharts.api.visualization.arrayToDataTable(input4);
+    const pie_4_chart = new GoogleCharts.api.visualization.LineChart(document.getElementById('chart4'));
+    pie_4_chart.draw(data4);
+
 
 }
   } 
