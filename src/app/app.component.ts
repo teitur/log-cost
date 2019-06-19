@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 
-import Chart from 'chart.js';
-
 import {GoogleCharts} from 'google-charts';
- 
-
 
 @Component({
   selector: 'app-root',
