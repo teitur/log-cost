@@ -7,7 +7,7 @@ import {GoogleCharts} from 'google-charts';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'log-cost';
   ngOnInit() {
   this.hej();
@@ -18,10 +18,10 @@ export class AppComponent implements OnInit {
     GoogleCharts.load(drawChart);
      
     function drawChart() {
-        var input1 = [['cost','interest']];
-        var input2 = [['cost','interest']];
-        var input3 = [['cost','interest']];
-        var input4 = [['cost','interest']];
+        var input1: (string|number)[][] = [['cost','interest']];
+        var input2: (string|number)[][] = [['cost','interest']];
+        var input3: (string|number)[][] = [['cost','interest']];
+        var input4: (string|number)[][] = [['cost','interest']];
         
         var x0 = 2000.0;
         var myLn = function(x) { return Math.log(x / x0); }
